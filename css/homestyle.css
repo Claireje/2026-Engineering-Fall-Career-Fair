@@ -22,7 +22,7 @@ body {
     flex-direction: column;
 }
 
-.page-shell #footer-container {
+.page-shell footer {
     margin-top: auto;
 }
 
@@ -63,14 +63,22 @@ img {
     display: block;
 }
 
-.nav-search {
-    flex: 1; 
-    max-width: 480px;
-    position: relative;
+/* Hides the checkbox that drives the mobile menu (see .nav-hamburger below) */
+.nav-toggle {
+    display: none;
 }
+
 /* ── NAV DROPDOWN ── */
 .nav-dropdown {
   position: relative;
+}
+
+.nav-dropdown-trigger {
+  list-style: none;
+}
+
+.nav-dropdown-trigger::-webkit-details-marker {
+  display: none;
 }
 
 .nav-dropdown-right .nav-dropdown-menu {
@@ -101,15 +109,6 @@ img {
 .nav-link:hover {
   color: #fff;
   border-color: rgba(255,255,255,.5);
-}
-
-.nav-search {
-  flex: 1;
-  max-width: 320px;
-}
-
-.nav-search .search-input {
-  width: 100%;
 }
 
 .nav-dropdown-menu {
@@ -164,45 +163,6 @@ img {
 
 .nav-dropdown-trigger {
   cursor: pointer;
-}
-
-.nav-search svg {
-    position: absolute; 
-    left: 14px; 
-    top: 50%; 
-    transform: translateY(-50%);
-    opacity: .5; 
-    pointer-events: none;
-}
-
-.nav-search input {
-    width: 100%;
-    background: rgba(255,255,255,.08);
-    border: 1px solid rgba(255,255,255,.18);
-    border-radius: 30px;
-    padding: 9px 18px 9px 44px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 13px; 
-    color: rgba(255,255,255,.75);
-    outline: none;
-}
-
-.nav-search input::placeholder { 
-    color: rgba(255,255,255,.4); 
-}
-
-.nav-right { 
-    display: flex; 
-    align-items: center; 
-    gap: 20px; 
-    flex-shrink: 0; 
-}
-
-.nav-menu {
-    font-size: 14px;
-    padding: 10px 12px;
-    color: rgba(255,255,255,.7); 
-    cursor: pointer; 
 }
 
 /* ── BUTTONS ── */
@@ -327,18 +287,6 @@ img {
     overflow: hidden;
     min-height: 520px;
 }
-#nav-container {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-#nav-container .nav {
-  position: relative;
-  top: auto;
-  z-index: 1000;
-}
-
 .hero-bg {
     position: absolute; 
     inset: 0;
@@ -644,85 +592,6 @@ img {
     margin-bottom: 32px; 
 }
 
-/* ── RESOURCES ── */
-.resources {
-    background: #FCF7F3;
-    padding: 60px 20px;
-}
-
-.resources .section-tag {
-    text-align: center;
-    width: 100%;
-    color: rgba(4, 25, 42, 0.6);
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    margin-bottom: 4px;
-}
-
-.res-icon {
-    width: 48px;
-    height: 48px;
-    background: #F0EBE3;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.res-icon img {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-}
-
-.res-icon svg {
-    width: 24px;
-    height: 24px;
-    stroke: #04192A;
-    fill: none;
-    stroke-width: 1.6;
-}
-
-.company-card h3 {
-    font-size: 15px;
-    font-weight: 600;
-    color: #04192A;
-    line-height: 1.4;
-}
-
-.company-card p {
-    font-size: 13px;
-    color: rgba(0,0,0,.5);
-    line-height: 1.75;
-}
-
-/* ── COMPANY GRID & CARDS ── */
-.company-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto 24px;
-    text-align: left;
-}
-
-.company-card {
-    background: #fff;
-    border: 1px solid rgba(0,0,0,.1);
-    border-radius: 20px;
-    padding: 28px 28px 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,.04);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.company-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 20px rgba(4, 25, 42, 0.05);
-}
-
 /* ── COMPANIES SHOWCASE ── */
 .companies-showcase {
     background: #FAF8F6;
@@ -754,6 +623,14 @@ img {
     max-height: 52px;
     max-width: 140px;
     object-fit: contain;
+}
+
+.companies-more {
+    font-family: 'Crimson Text', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 26px;
+    color: #04192A;
 }
 
 /* ── TIMELINE ── */
@@ -902,143 +779,6 @@ img {
 
 }
 
-/* ── ATTENDEES ── */
-.attendees {
-    text-align: center;
-    width: 100%;
-    background: #FAF8F6;
-    color: #04192A;
-    padding: 72px 40px;
-}
-
-.attendees .section-title {
-    font-size: 28px;
-    text-align: center;
-    width: 100%;
-    color: #04192A;
-}
-
-.attendees .section-tag {
-    color: rgba(4, 25, 42, 0.5);
-}
-
-.companies-header p {
-    color: rgba(4, 25, 42, 0.7);
-    max-width: 650px;
-    margin: 0 auto 20px;
-    font-size: 14px;
-    line-height: 1.85;
-}
-
-/* company search controls row */
-.attendees .nav-right {
-    justify-content: center;
-    margin-bottom: 40px;
-}
-
-/* filter select wrappers */
-#time-filter-wrap {
-    max-width: 180px;
-    flex: 1;
-    position: relative;
-}
-
-#job-type-filter-wrap {
-    max-width: 200px;
-    flex: 1;
-    position: relative;
-}
-
-/* filter selects */
-#time-filter,
-#job-type-filter {
-    width: 100%;
-    background: rgba(4, 25, 42, 0.05);
-    border: 1px solid rgba(4, 25, 42, 0.15);
-    border-radius: 30px;
-    padding: 10px 18px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 13px;
-    color: #04192A;
-    outline: none;
-    cursor: pointer;
-    appearance: none;
-}
-
-#time-filter option,
-#job-type-filter option {
-    background: #ffffff;
-    color: #04192A;
-}
-
-#time-filter option:first-child,
-#job-type-filter option:first-child {
-    background: #FAF8F6;
-}
-
-/* company count label */
-#company-count {
-    text-align: center;
-    margin-bottom: 32px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-size: 12px;
-    color: rgba(4, 25, 42, 0.6);
-    font-weight: 600;
-}
-
-/* load more button wrapper */
-#sticky-btn-wrapper {
-    position: static;
-    z-index: 100;
-    padding: 12px 0;
-    transition: all 0.3s ease;
-}
-
-#sticky-btn-wrapper.is-sticky {
-    position: fixed;
-    bottom: 28px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 500;
-    padding: 0;
-}
-
-#sticky-btn-wrapper.is-sticky #load-more-btn {
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
-}
-
-/* load more button — light-bg variant of .btn-ghost */
-#load-more-btn {
-    color: #04192A;
-    background: #FAF8F6;
-    border: 2px solid rgba(4, 25, 42, 0.35);
-    min-width: 200px;
-    box-shadow: none;
-    transition: all 0.2s ease;
-}
-
-.attendees-logos {
-    background: #fff;
-    border: 1px solid rgba(0,0,0,.08);
-    border-radius: 16px;
-    min-height: 160px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(0,0,0,.2);
-    font-size: 13px;
-    letter-spacing: .05em;
-}
-
-.thankyou {
-    text-align: center;
-    padding: 32px 40px;
-    background: transparent;
-    font-size: 15px;
-    font-weight: 600;
-    color: rgba(4, 25, 42, 0.5);
-}
 
 /* ── FOOTER ── */
 footer {
@@ -1204,15 +944,8 @@ html {
 }
 
 /* ── RESPONSIVE ── */
-@media (min-width: 768px) {
-    .company-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
 @media (max-width: 900px) {
     .nav { padding: 0 20px; }
-    .nav .nav-search { display: none; }
     .hero { padding: 48px 20px 0; }
     .hero-inner { grid-template-columns: 1fr; }
     .hero-stats {
@@ -1226,7 +959,6 @@ html {
     .connecting-img { position: static; height: auto; max-height: 360px; width: 100%; object-fit: cover; border-radius: 16px; }
     .connecting-text { padding: 28px 24px 40px; }
     .section { padding: 48px 20px; }
-    .company-grid { grid-template-columns: 1fr; }
     .tl-wrap { grid-template-columns: 1fr; }
     .tl-col-left, .tl-col-right {
         grid-column: 1;
@@ -1239,55 +971,6 @@ html {
     footer { padding: 24px 20px 16px; }
 }
 
-@media (max-width: 768px) {
-    /* Collapse nav search bar only — not the company search */
-    .nav .search-input {
-        width: 0;
-        padding: 0;
-        border-color: transparent;
-        background: transparent;
-        pointer-events: none;
-    }
-
-    .nav .search-container {
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-    }
-
-    .nav .search-icon-btn {
-        position: static;
-        padding: 10px;
-        border-radius: 50%;
-        transition: background-color 0.2s ease;
-    }
-
-    .nav .search-icon-btn:hover {
-        background-color: rgba(4, 25, 42, 0.05);
-    }
-
-    /* Attendees search + filter: stack vertically, full width */
-    .attendees .nav-right {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
-        padding: 0 4px;
-    }
-
-    .attendees .search-container {
-        width: 100%;
-    }
-
-    .attendees .search-input {
-        width: 100%;
-    }
-
-    #time-filter-wrap,
-    #job-type-filter-wrap {
-        max-width: 100%;
-    }
-}
-
 @media (max-width: 600px) {
     .hero-title { font-size: 44px; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -1296,75 +979,14 @@ html {
     .footer-brand .nav-logo img { height: 64px; }
 }
 
-/* ── NAV SEARCH RESULTS DROPDOWN ── */
-.nav-search {
-  position: relative;
-}
-
-.nav-search-results {
-  display: none;
-  position: absolute;
-  top: calc(100% + 8px);
-  left: 0;
-  right: 0;
-  min-width: 300px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
-  z-index: 400;
-  overflow: hidden;
-}
-
-.nav-search-results.is-visible {
-  display: block;
-}
-
-.nav-search-result {
-  display: block;
-  padding: 11px 16px;
-  text-decoration: none;
-  color: #04192A;
-  border-bottom: 1px solid rgba(4, 25, 42, 0.06);
-  transition: background 0.15s;
-}
-
-.nav-search-result:last-child {
-  border-bottom: none;
-}
-
-.nav-search-result:hover {
-  background: #FFF9E8;
-}
-
-.nav-search-result-title {
-  font-size: 13px;
-  font-weight: 600;
-  color: #04192A;
-  margin-bottom: 2px;
-  font-family: 'IBM Plex Mono', monospace;
-}
-
-.nav-search-result-desc {
-  font-size: 11px;
-  color: rgba(4, 25, 42, 0.5);
-  font-family: 'IBM Plex Mono', monospace;
-}
-
-.nav-search-no-results {
-  padding: 14px 16px;
-  font-size: 13px;
-  color: rgba(4, 25, 42, 0.45);
-  font-family: 'IBM Plex Mono', monospace;
-}
-
-/* ── HAMBURGER / MOBILE NAV ── */
+/* ── HAMBURGER / MOBILE NAV ──
+   Driven entirely by the hidden #nav-toggle checkbox (see nav.html) and the
+   native <details>/<summary> open state on each .nav-dropdown — no JS. */
 .nav-hamburger {
     display: none;
     flex-direction: column;
     justify-content: center;
     gap: 5px;
-    background: none;
-    border: none;
     cursor: pointer;
     padding: 8px;
     flex-shrink: 0;
@@ -1379,19 +1001,15 @@ html {
     transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-.nav-mobile-cta {
-    display: none;
-}
-
-/* Hamburger → X when open */
-.nav.is-open .nav-hamburger span:nth-child(1) {
+/* Hamburger → X when the menu is open */
+.nav-toggle:checked ~ .nav-hamburger span:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
 }
-.nav.is-open .nav-hamburger span:nth-child(2) {
+.nav-toggle:checked ~ .nav-hamburger span:nth-child(2) {
     opacity: 0;
     transform: scaleX(0);
 }
-.nav.is-open .nav-hamburger span:nth-child(3) {
+.nav-toggle:checked ~ .nav-hamburger span:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
 }
 
@@ -1400,15 +1018,7 @@ html {
         display: flex;
     }
 
-    .nav .nav-search {
-        display: none;
-    }
-
-    .nav > .nav-right {
-        display: none;
-    }
-
-    /* Mobile nav panel — hidden by default, shown when .is-open */
+    /* Mobile nav panel — hidden by default, shown when the checkbox is checked */
     .nav-links {
         display: none;
         position: absolute;
@@ -1424,7 +1034,7 @@ html {
         gap: 0;
     }
 
-    .nav.is-open .nav-links {
+    .nav-toggle:checked ~ .nav-links {
         display: flex;
     }
 
@@ -1437,7 +1047,7 @@ html {
     }
 
     /* One clean divider between each top-level section */
-    .nav.is-open .nav-links > * + * {
+    .nav-toggle:checked ~ .nav-links > * + * {
         border-top: 1px solid rgba(255,255,255,.1);
     }
 
@@ -1461,16 +1071,13 @@ html {
         margin-right: 4px;
     }
 
-    .nav-dropdown.is-open .nav-dropdown-trigger::after {
+    .nav-dropdown[open] .nav-dropdown-trigger::after {
         transform: rotate(-135deg);
     }
 
-    /* Sub-menus hidden by default — shown only when .is-open on parent */
-    .nav.is-open .nav-dropdown-menu {
-        display: none;
-    }
-
-    .nav.is-open .nav-dropdown.is-open .nav-dropdown-menu {
+    /* Sub-menu — <details> shows/hides it natively; these rules just restyle
+       it for the mobile layout (inline, not a floating dropdown) */
+    .nav-dropdown[open] .nav-dropdown-menu {
         display: block;
         position: static;
         transform: none;
@@ -1482,11 +1089,11 @@ html {
         margin-top: 0;
     }
 
-    .nav.is-open .nav-dropdown-menu::before {
+    .nav-dropdown[open] .nav-dropdown-menu::before {
         display: none;
     }
 
-    .nav.is-open .nav-dropdown.is-open .nav-dropdown-menu a {
+    .nav-dropdown[open] .nav-dropdown-menu a {
         color: #fff;
         font-weight: 400;
         text-align: left;
@@ -1495,16 +1102,8 @@ html {
         border-bottom: none;
     }
 
-    .nav.is-open .nav-dropdown.is-open .nav-dropdown-menu a:hover {
+    .nav-dropdown[open] .nav-dropdown-menu a:hover {
         background: rgba(255,255,255,.06);
         color: rgba(255,255,255,.75);
-    }
-
-    /* Mobile Register button */
-    .nav-mobile-cta {
-        display: block;
-        padding: 16px 24px 4px;
-        border-top: 1px solid rgba(255,255,255,.08);
-        margin-top: 8px;
     }
 }
