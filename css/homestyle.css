@@ -626,11 +626,12 @@ img {
 }
 
 .companies-more {
-    font-family: 'Crimson Text', serif;
-    font-style: italic;
-    font-weight: 700;
-    font-size: 26px;
-    color: #04192A;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(4, 25, 42, 0.5);
 }
 
 /* ── TIMELINE ── */
