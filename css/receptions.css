@@ -371,49 +371,6 @@
   stroke-width: 2;
 }
 
-/* ── NIGHT COMPANY LIST ── */
-.night-companies {
-  margin-top: 28px;
-  padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.night-companies-label {
-  font-size: 11px;
-  letter-spacing: 0.13em;
-  color: rgba(255, 255, 255, 0.5);
-  text-transform: uppercase;
-  margin-bottom: 14px;
-}
-
-.night-companies-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px 18px;
-}
-
-.night-companies-list li {
-  font-size: 13px;
-  color: #FAF8F6;
-  line-height: 1.5;
-  padding-left: 14px;
-  position: relative;
-}
-
-.night-companies-list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 7px;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #FFC800;
-}
-
 .night-rsvp {
   display: flex;
   align-items: center;
@@ -661,10 +618,6 @@
   .fair-day-callout {
     border-radius: 20px;
     align-items: flex-start;
-  }
-
-  .night-companies-list {
-    grid-template-columns: 1fr;
   }
 }
 
