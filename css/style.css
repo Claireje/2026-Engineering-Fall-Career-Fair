@@ -2554,7 +2554,7 @@ text-align: center;
   }
 }
 .gallery-hero {
-  background-image: url('../img/gallery/1.jpg');
+  background-image: url('../img/gallery/hero.jpg');
   min-height: 360px;
   flex: 1;
   display: flex;
