@@ -2593,6 +2593,15 @@ text-align: center;
   padding: 64px 40px;
 }
 
+.gallery-year {
+  text-align: center;
+  font-family: 'Crimson Text', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #04192A;
+  margin-bottom: 32px;
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
