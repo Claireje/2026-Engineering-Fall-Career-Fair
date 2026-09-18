@@ -2602,9 +2602,14 @@ text-align: center;
   margin-bottom: 32px;
 }
 
+/* Bento-style grid: most tiles are one cell, but every so often a tile
+   spans two columns and/or two rows so the grid isn't a flat wall of
+   identical squares. Pure CSS, no JS, no animation. */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-auto-rows: 200px;
+  grid-auto-flow: dense;
   gap: 16px;
   max-width: 1200px;
   margin: 0 auto;
@@ -2614,7 +2619,6 @@ text-align: center;
   display: block;
   border-radius: 12px;
   overflow: hidden;
-  aspect-ratio: 4 / 3;
   background: #061929;
 }
 
@@ -2624,14 +2628,30 @@ text-align: center;
   object-fit: cover;
 }
 
-@media (max-width: 560px) {
+.gallery-item:nth-child(7n+1) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.gallery-item:nth-child(11n+5) {
+  grid-column: span 2;
+}
+
+@media (max-width: 700px) {
   .gallery-hero {
     padding: 60px 20px;
   }
 
   .gallery-grid {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    grid-auto-rows: 140px;
     gap: 10px;
+  }
+
+  .gallery-item:nth-child(7n+1),
+  .gallery-item:nth-child(11n+5) {
+    grid-column: span 1;
+    grid-row: span 1;
   }
 }
 
